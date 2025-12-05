@@ -1,7 +1,7 @@
-/*#include <DallasTemperature.h>
+#include <DallasTemperature.h>
 #include <OneWire.h>
 
-#define ONE_WIRE_BUS A1
+#define ONE_WIRE_BUS A0
 
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
@@ -23,4 +23,3 @@ namespace Temp {
     return sensors.getTempFByIndex(0); 
   }
 }
-*/
