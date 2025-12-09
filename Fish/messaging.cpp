@@ -46,7 +46,6 @@ namespace Messaging {
     pinMode(13, OUTPUT);
     int status = radio.begin(RFM95_FREQ);
     if (status != 0) debug(13);
-    Serial.print("radio status"); Serial.println(status);
     i2ceeprom.begin(0x50);
     tosend.myaddr = i2ceeprom.read(0x00);
   }
@@ -55,7 +54,6 @@ namespace Messaging {
   void send(ReadingSlug& slug) 
   {
     pb_ostream_t pbout = pb_ostream_from_buffer(tosend.data, 256);
-    Serial.println(slug.r3.value);
     Serial.println(pb_encode(&pbout, ReadingSlug_fields, &slug));
     int status = radio.transmit((uint8_t *)&tosend, pbout.bytes_written+HEADER_LEN);
     Serial.print(pbout.bytes_written);Serial.println(status);

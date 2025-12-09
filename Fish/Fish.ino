@@ -17,8 +17,8 @@ Task sendtask(SEND_DURATION, TASK_FOREVER, read_and_send, &ts, true);
 #define BATTERY_PIN A3
 
 void setup() {
-  Serial.begin(115200);
-  while (!Serial) delay(1);
+  //Serial.begin(115200);
+  //while (!Serial) delay(1);
 
   pinMode(5, OUTPUT);
   pinMode(9, OUTPUT);
